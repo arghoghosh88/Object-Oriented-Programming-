@@ -1,0 +1,40 @@
+/*Create a class Distance that encapsulates two data members
+feet and inches. Now write a non-member function addDistance()
+that takes two Distance objects as a parameter and returns 
+another Distance object after addition operation*/
+#include <iostream>
+using namespace std;
+class Distance 
+{
+  private:
+      int inch,feet;
+  public:
+      Distance(int i,int f)
+      {
+        inch = i;
+        feet =f;
+      }
+      friend Distance addDistance(Distance d1, Distance d2);
+      void show()
+      {
+        cout<<"Addinch = "<<inch<<endl;
+        cout<<"Addfeet = "<<feet<<endl;
+      }
+};
+Distance addDistance(Distance d1, Distance d2){
+  
+  int addinch = d1.inch + d2.inch;
+  int addfeet = d1.feet + d2.feet;
+  Distance b(addinch,addfeet);
+  return b;
+}
+
+int main() 
+{
+  Distance b1(2,3);
+  Distance b2(4,5);
+  Distance c =addDistance(b1,b2);
+  c.show();
+
+    return 0;
+}
